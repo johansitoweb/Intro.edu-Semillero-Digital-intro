@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro.edu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Botón Menú -->
+<button class="bi bi-list menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu"></button>
+
+<!-- Menú -->
+<div id="menu" class="bg-primary text-white min-vh-100 p-3">
+    <button class="bi bi-x-lg menu-close" onclick="toggleMenu()" aria-label="Close Menu"></button>
+    <h1 class="fs-4 fw-bold">INTRO.edu</h1>
+    <nav class="nav flex-column mt-4">
+        <a id="nav-inicio" class="nav-link text-white" href="#" onclick="showSection('inicio', this)">
+            <i class="fas fa-home me-2"></i>Inicio
+        </a>
+        <a id="nav-perfil" class="nav-link text-white" href="#" onclick="showSection('perfil', this)">
+            <i class="fas fa-user me-2"></i>Perfil
+        </a> 
+        <a id="nav-egresados" class="nav-link text-white" href="#" onclick="showSection('egresados', this)">
+            <i class="fas fa-graduation-cap me-2"></i>Egresados
+        </a>
+        <a id="nav-trabajos" class="nav-link text-white" href="#" onclick="showSection('trabajos', this)">
+            <i class="fas fa-briefcase me-2"></i>Trabajos
+        </a>
+        <a id="nav-foros" class="nav-link text-white" href="#" onclick="showSection('foros', this)">
+            <i class="fas fa-comments me-2"></i>Foros
+        </a>
+        <a id="nav-configuracion" class="nav-link text-white" href="#" onclick="showSection('configuracion', this)">
+            <i class="fas fa-cog me-2"></i>Configuración
+        </a>
+        <hr class="border-white my-3">
+        <a id="nav-salir" class="nav-link text-white fw-bold" href="logout.php">
+            <i class="fas fa-sign-out-alt me-2"></i>Salir
+        </a>
+    </nav>
+</div>
+
+
+<!-- Main Content -->
+<div class="container-fluid p-4">
+    <!-- Top Bar -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="position-relative w-50">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Buscar...">
+            </div>
+        </div>
+        <div class="d-flex align-items-center">
+            <i class="fas fa-bell text-secondary me-3"></i>
+            <span class="text-secondary" onclick="showSection('perfil', this)" style="cursor: pointer;">Perfil</span>
+        </div>
+    </div>
+
+<!-- Contenido -->
+<div class="row">
+        <section class="content-section active" id="inicio">
+        <div class="container mt-4">
+            <!-- Sección Hero -->
+            <div class="hero-section row">
+                <div class="hero-text col-md-6">
+                    <h1>Bienvenido a INTRO.<span class="highlight">edu</span></h1>
+                    <p>Estamos cambiando la vida de los jóvenes a través de Semilleros INTRO, un programa de capacitación tecnológica que impacta la vida de 100 jóvenes en 6 meses. Cada estudiante tiene una historia que contar y sueños que cumplir.</p>
+                </div>
+                <div class="hero-section-image col-md-6">
+                    <img src="imagenes INTRO/claudia.png" alt="Imagen Representativa" class="hero-image img-fluid">
+                </div>
+            </div>
+            <!-- Título de Proyectos Destacados -->
+            <h3 class="fw-bold">Proyectos destacados</h3>
+        
+            <!-- Contenedor de proyectos deslizable -->
+            <div class="scroll-container">
+                <!-- Tarjeta de Proyecto 1 -->
+                <div class="project-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/GitHub_Logo.png" alt="GitHub Logo">
+                    <h5>OpenAI Chatbot</h5>
+                    <p>Chatbot con IA usando Python y OpenAI API.</p>
+                    <div class="profile-info">
+                        <i class="bi bi-person-circle"></i> @johndoe
+                    </div>
+                </div>
+            
+                <!-- Tarjeta de Proyecto 2 -->
+                <div class="project-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo">
+                    <h5>Task Manager</h5>
+                    <p>App de gestión de tareas con Node.js y MongoDB.</p>
+                    <div class="profile-info">
+                        <i class="bi bi-person-circle"></i> @janedoe
+                    </div>
+                </div>
+            
+                <!-- Tarjeta de Proyecto 3 -->
+                <div class="project-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo">
+                    <h5>Portfolio Dev</h5>
+                    <p>Portafolio interactivo con React y Tailwind.</p>
+                    <div class="profile-info">
+                        <i class="bi bi-person-circle"></i> @devmark
+                    </div>
+                </div>
+            
+                <!-- Tarjeta de Proyecto 4 -->
+                <div class="project-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" alt="Django Logo">
+                    <h5>Blog Tech</h5>
+                    <p>Blog de tecnología con Django y PostgreSQL.</p>
+                    <div class="profile-info">
+                        <i class="bi bi-person-circle"></i> @coderx
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <section class="content-section" id="perfil">
+        <div class="portada-perfil">
+            <button class="btn btn-primary" id="change-background-btn" style="position: absolute; top: 10px; right: 40px;">Cambiar Fondo</button>
+        </div>
+        <div class="perfil-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-card text-left p-4">
+                        <img src="perfil.jpg" alt="Usuario">
+                        <div class="profile-links d-flex flex-column mt-3">
+                            <h4 class="mt-3 text-center" id="profile-name">Luis Enyel Ivanol</h4>
+                            <p class="text-muted text-center" id="profile-username">@LuisEnyel</p>
+                            <p> <span id="profile-location">Santo Domingo Norte</span></p>
+                            <p> <span id="profile-specialty">Ing. Software</span></p>
+                            <a href="#" id="profile-github">LuisEnyelIvanol</a>
+                            <a href="#" id="profile-linkedin">LuisEnyelIvanol</a>
+                            <a href="mailto:LuisEnyel@gmail.com" id="profile-email">LuisEnyel@gmail.com</a>
+                            <a href="#" id="profile-website">www.LuisEnyelIvanol.com</a>
+                            <a href="#">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <a style="margin-left: 15%; font-weight: bold; color:white; font-size: 20px;" id="proyectos">Proyectos</a>
+                    <a style="margin-left: 15%; font-weight: bold; color:white; font-size: 20px;" id="aportaciones"></a>
+                    <div class="projects-container" id="projects-scroll">
+                        <!-- Proyecto 1 -->
+                        <div class="project-card-perfil">
+                            <img src="proyecto1.jpg" alt="Proyecto">
+                            <h5 class="mt-2">Proyecto 1</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver código</button>
+                        </div>
+                        <!-- Proyecto 2 -->
+                        <div class="project-card-perfil">
+                            <img src="proyecto2.jpg" alt="Proyecto">
+                            <h5 class="mt-2">Proyecto 2</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver código</button>
+                        </div>
+                        <!-- Proyecto 3 -->
+                        <div class="project-card-perfil">
+                            <img src="proyecto3.jpg" alt="Proyecto">
+                            <h5 class="mt-2">Proyecto 3</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver código</button>
+                        </div>
+                        <!-- Proyecto 4 -->
+                        <div class="project-card-perfil">
+                            <img src="proyecto4.jpg" alt="Proyecto">
+                            <h5 class="mt-2">Proyecto 4</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver código</button>
+                        </div>
+                        <!-- Proyecto 5 -->
+                        <div class="project-card-perfil">
+                            <img src="proyecto5.png" alt="Proyecto">
+                            <h5 class="mt-2">Proyecto 5</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver código</button>
+                        </div>
+                    </div>
+                    <div class="aportes-container" id="aportes-scroll" style="display: none;">
+                        <!-- Aporte 1 -->
+                        <div class="aporte-card">
+                            <h5 class="mt-2">Aporte 1</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver aporte</button>
+                        </div>
+                        <!-- Aporte 2 -->
+                        <div class="aporte-card">
+                            <h5 class="mt-2">Aporte 2</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver aporte</button>
+                        </div>
+                        <!-- Aporte 3 -->
+                        <div class="aporte-card">
+                            <h5 class="mt-2">Aporte 3</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver aporte</button>
+                        </div>
+                        <!-- Aporte 4 -->
+                        <div class="aporte-card">
+                            <h5 class="mt-2">Aporte 4</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver aporte</button>
+                        </div>
+                        <!-- Aporte 5 -->
+                        <div class="aporte-card">
+                            <h5 class="mt-2">Aporte 5</h5>
+                            <p>Descripción breve.</p>
+                            <button class="btn btn-primary btn-sm">Ver aporte</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="Proyectos">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+
+
+            </div>
+        </div>  
+    </section>
+    
+
+
+    <section class="content-section" id="egresados">
+        <div class="egresados">
+            <header>
+           
+            </header>
+            <main style="margin-top: -4%;">
+                <h1>Nuestros egresados</h1>
+                <div class="filters">
+                    <label>Filtrar por:</label>
+                    <select id="filterSpecialty">
+                        <option value="">Especialidad</option>
+                        <option value="Web Development">Web Development</option>
+                        <option value="Diseño Gráfico">Diseño Gráfico</option>
+                    </select>
+                    <select id="filterSkills">
+                        <option value="">Habilidades</option>
+                    </select>
+                    <select id="filterDate">
+                        <option value="">Fecha</option>
+                    </select>
+                </div>
+                <section class="graduates">
+                    <!-- Tarjetas generadas dinámicamente con JavaScript -->
+                </section>
+            </main>
+        </div>
+    </section>
+
+    <section class="content-section" id="trabajos">
+        <div class="trabajos">
+            <header class="buscador-trabajos">
+                <input type="text" id="buscador-trabajos" placeholder="Buscar trabajo...">
+            </header>
+            <main>
+                <section class="filtros">
+                    <select id="filtrar-empresa">
+                        <option value="">Empresa</option>
+                        <option value="Google">Google</option>
+                        <option value="PayPal">PayPal</option>
+                        <option value="Snapchat">Snapchat</option>
+                    </select>
+                    <select id="filtrar-especialidad">
+                        <option value="">Especialidad</option>
+                        <option value="Front-end">Front-end</option>
+                        <option value="Back-end">Back-end</option>
+                        <option value="Full-stack">Full-stack</option>
+                    </select>
+                    <select id="filtrar-horario">
+                        <option value="">Horario</option>
+                        <option value="Tiempo completo">Tiempo completo</option>
+                        <option value="Medio tiempo">Medio tiempo</option>
+                    </select>
+                </section>
+                <section class="contenedor-trabajos">
+                    
+                    <!-- Las tarjetas de trabajo se insertarán aquí con JS -->
+                </section>
+                <aside class="detalle-trabajo oculto">
+                    <button id="cerrar-detalle">X</button>
+                    <div id="contenido-detalle"></div>
+                </aside>
+            </main>
+        </div>
+    </section>
+
+    <section class="content-section" id="foros">
+       <input type="text" id="buscadorForos" placeholder="Buscar foros..." class="buscador-foros">
+        <section class="content-section" id="foros"></section> 
+        
+    </section>
+
+    <section class="content-section" id="configuracion">
+        <div class="container-fluid">
+            <div class="row min-vh-100">
+                <!-- Sidebar -->
+                <div class="col-md-3 bg-white shadow-sm p-4">
+                    <div class="d-flex align-items-center mb-4">
+                        <i class="fas fa-cog text-primary fs-4 me-2"></i>
+                        <h1 class="fs-4 fw-bold">Configuración</h1>
+                    </div>
+                    <div class="list-group">
+                        <button class="list-group-item list-group-item-action active" data-section="profile-section">
+                            <i class="fas fa-user me-2"></i> Configuración de Perfil
+                        </button>
+                        <button class="list-group-item list-group-item-action" data-section="privacy-section">
+                            <i class="fas fa-user-shield me-2"></i> Privacidad de la cuenta
+                        </button>
+                    </div>
+                </div>
+    
+                <!-- Contenido principal -->
+                <div class="col-md-9 p-4">
+                    <!-- Sección de Configuración de Perfil -->
+                    <div id="profile-section" class="card p-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <img src="https://storage.googleapis.com/a1aa/image/jFXUdFrzUOJay6HKVF0wG1J254auIrIuwCemiEjzvM0.jpg"
+                                 class="rounded-circle me-3" width="100" height="100" alt="Profile picture">
+                            <i class="fas fa-camera text-primary fs-5 cursor-pointer"></i>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="config-name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Usuario</label>
+                                <input type="text" class="form-control" id="config-username">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Ubicación</label>
+                                <input type="text" class="form-control" id="config-location">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Especialidad</label>
+                                <input type="text" class="form-control" id="config-specialty">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">GitHub</label>
+                                <input type="text" class="form-control" id="config-github">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">LinkedIn</label>
+                                <input type="text" class="form-control" id="config-linkedin">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Correo electrónico</label>
+                                <input type="email" class="form-control" id="config-email">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Sitio web</label>
+                                <input type="text" class="form-control" id="config-website">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Sección de Privacidad (Oculta por defecto) -->
+                    <div id="privacy-section" class="card p-4 d-none">
+                        <h2 class="fs-4 fw-bold mb-4">Privacidad de la cuenta</h2>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Contraseña actual</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Nueva contraseña</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Confirmar nueva contraseña</label>
+                                <input type="password" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Autenticación en dos factores</label>
+                                <select class="form-select">
+                                    <option>Desactivado</option>
+                                    <option>Activado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </section>
+    
+</div>
+
+<script src="app.js"></script>
+<script src="perfil.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

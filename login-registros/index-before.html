@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .active-step {
+            background-color: #3d85d8; /* Tailwind's blue-500 */
+        }
+        .inactive-step {
+            background-color: #d1d5db; /* Tailwind's gray-300 */
+        }
+        .bg-overlay {
+            background: url('fondo.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        .bg-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(114, 180, 241, 0.5); /* Blue overlay with 50% opacity */
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="bg-overlay min-h-screen flex items-center justify-center">
+    <div class="content bg-white rounded-lg shadow-lg p-8 w-full max-w-3xl">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold">Formulario de aplicación</h1>
+        </div>
+        <div class="flex justify-center items-center mb-8 flex-wrap">
+            <div class="flex items-center mx-2 cursor-pointer" onclick="showSection(0)">
+                <div id="step-1" class="w-8 h-8 text-white rounded-full flex items-center justify-center active-step">1</div>
+                <span class="ml-2 font-semibold">Personales</span>
+            </div>
+            <div class="flex items-center mx-2 cursor-pointer" onclick="showSection(1)">
+                <div id="step-2" class="w-8 h-8 text-white rounded-full flex items-center justify-center inactive-step">2</div>
+                <span class="ml-2 text-gray-500">Académica</span>
+            </div>
+            <div class="flex items-center mx-2 cursor-pointer" onclick="showSection(2)">
+                <div id="step-3" class="w-8 h-8 text-white rounded-full flex items-center justify-center inactive-step">3</div>
+                <span class="ml-2 text-gray-500">Socioeconómica</span>
+            </div>
+            <div class="flex items-center mx-2 cursor-pointer" onclick="showSection(3)">
+                <div id="step-4" class="w-8 h-8 text-white rounded-full flex items-center justify-center inactive-step">4</div>
+                <span class="ml-2 text-gray-500">Tecnología</span>
+            </div>
+        </div>
+        <div id="basic-details" class="form-section">
+            <h2 class="text-lg font-semibold mb-4">Datos Personales y de Contacto</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Nombre completo *</label>
+                    <input type="text" placeholder="Ingrese su nombre completo" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Teléfono de contacto *</label>
+                    <input type="text" placeholder="Ingrese su teléfono de contacto" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Correo electrónico *</label>
+                    <input type="email" placeholder="Ingrese su correo electrónico" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Número de cédula *</label>
+                    <input type="text" placeholder="Ingrese su número de cédula" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Edad *</label>
+                    <input type="number" placeholder="Ingrese su edad" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Género *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="gender" id="female" class="mr-2">
+                        <label for="female" class="mr-4">Femenino</label>
+                        <input type="radio" name="gender" id="male" class="mr-2">
+                        <label for="male">Masculino</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Ciudad y sector de residencia *</label>
+                    <input type="text" placeholder="Ingrese su ciudad y sector de residencia" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Institución a la que se refiere (si aplica)</label>
+                    <input type="text" placeholder="Ingrese la institución" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Nombre y contacto del reclutador (si aplica)</label>
+                    <input type="text" placeholder="Ingrese el nombre y contacto del reclutador" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-blue-500 text-white rounded-lg px-6 py-2" onclick="showSection(1)">Save & Continue</button>
+            </div>
+        </div>
+        <div id="academic-details" class="form-section hidden">
+            <h2 class="text-lg font-semibold mb-4">Situación Académica y Laboral</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Nivel educativo alcanzado *</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2">
+                        <option>Bachillerato</option>
+                        <option>Técnico</option>
+                        <option>Universitario</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">¿Actualmente estudias? *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="currently-studying" id="studying-yes" class="mr-2">
+                        <label for="studying-yes" class="mr-4">Sí</label>
+                        <input type="radio" name="currently-studying" id="studying-no" class="mr-2">
+                        <label for="studying-no">No</label>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium mb-1">En caso afirmativo, ¿qué estás estudiando?</label>
+                    <input type="text" placeholder="Ingrese lo que está estudiando" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">¿Sabes leer y escribir? *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="literacy" id="literacy-yes" class="mr-2">
+                        <label for="literacy-yes" class="mr-4">Sí</label>
+                        <input type="radio" name="literacy" id="literacy-no" class="mr-2">
+                        <label for="literacy-no">No</label>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">¿Trabaja actualmente? *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="currently-working" id="working-yes" class="mr-2">
+                        <label for="working-yes" class="mr-4">Sí</label>
+                        <input type="radio" name="currently-working" id="working-no" class="mr-2">
+                        <label for="working-no">No</label>
+                    </div>
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium mb-1">En caso afirmativo, ¿en qué trabaja?</label>
+                    <input type="text" placeholder="Ingrese su ocupación actual" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Horario laboral</label>
+                    <input type="text" placeholder="Ingrese su horario laboral" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Tiempo en el empleo actual</label>
+                    <input type="text" placeholder="Ingrese el tiempo en el empleo actual" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium mb-1">¿Tiene alguna discapacidad o condición especial?, en caso afirmativo, ¿cuál?</label>
+                    <input type="text" placeholder="Ingrese la discapacidad o condición especial" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-blue-500 text-white rounded-lg px-6 py-2" onclick="showSection(2)">Next</button>
+            </div>
+        </div>
+        <div id="socioeconomic-details" class="form-section hidden">
+            <h2 class="text-lg font-semibold mb-4">Situación Socioeconómica</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Estado civil de los padres o tutores *</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2">
+                        <option>Soltero/a</option>
+                        <option>Casado/a</option>
+                        <option>Unión libre</option>
+                        <option>Divorciado/a</option>
+                        <option>Viudo/a</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Ocupación del padre, madre o tutor</label>
+                    <input type="text" placeholder="Ingrese la ocupación" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">¿Son beneficiarios del programa Supérate? *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="superate-beneficiary" id="superate-yes" class="mr-2">
+                        <label for="superate-yes" class="mr-4">Sí</label>
+                        <input type="radio" name="superate-beneficiary" id="superate-no" class="mr-2">
+                        <label for="superate-no">No</label>
+                    </div>
+                </div>
+                
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium mb-1">Si aplica, ¿desde hace cuánto tiempo?</label>
+                    <input type="text" placeholder="Ingrese el tiempo" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Ingresos mensuales del hogar *</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2">
+                        <option>RD$0 - RD$10,000</option>
+                        <option>RD$10,000 - RD$25,000</option>
+                        <option>RD$25,000 - RD$45,000</option>
+                        <option>RD$45,000 - RD$65,000</option>
+                        <option>RD$65,000 o más</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Número de personas en el hogar *</label>
+                    <input type="number" placeholder="Ingrese el número de personas" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium mb-1">En caso afirmativo, ¿cuántos y qué edades tienen?</label>
+                    <input type="text" placeholder="Ingrese la cantidad y edades" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Tipo de vivienda *</label>
+                    <select class="w-full border border-gray-300 rounded-lg p-2">
+                        <option>Casa</option>
+                        <option>Apartamento</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-blue-500 text-white rounded-lg px-6 py-2" onclick="showSection(3)">Next</button>
+            </div>
+        </div>
+        <div id="tech-interests" class="form-section hidden">
+            <h2 class="text-lg font-semibold mb-4">Intereses y Experiencia en Tecnología</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label class="block text-sm font-medium mb-1">Del 1 al 5, ¿qué tanto le interesa la tecnología en general? *</label>
+                    <input type="number" min="1" max="5" placeholder="1-5" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Del 1 al 5, ¿qué tanto le interesa la programación de páginas web? *</label>
+                    <input type="number" min="1" max="5" placeholder="1-5" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Del 1 al 5, ¿qué tanto le interesa la programación de aplicaciones móviles? *</label>
+                    <input type="number" min="1" max="5" placeholder="1-5" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Del 1 al 5, ¿qué tanto le interesan las matemáticas o estadísticas? *</label>
+                    <input type="number" min="1" max="5" placeholder="1-5" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">Del 1 al 5, ¿qué tanto le interesa el diseño gráfico? *</label>
+                    <input type="number" min="1" max="5" placeholder="1-5" class="w-full border border-gray-300 rounded-lg p-2">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-1">¿Ha recibido formación en tecnología o informática? *</label>
+                    <div class="flex items-center">
+                        <input type="radio" name="tech-training" id="tech-training-yes" class="mr-2">
+                        <label for="tech-training-yes" class="mr-4">Sí</label>
+                        <input type="radio" name="tech-training" id="tech-training-no" class="mr-2">
+                        <label for="tech-training-no" class="mr-4">No</label>
+                    </div>
+                </div>
+                <div class="col-span-1 md:col-span-2">
+                    <label class="block text-sm font-medium mb-1">¿Por qué crees que deberías ser aceptado?</label>
+                    <textarea placeholder="Ingrese su comentario" class="w-full h-32 border border-gray-300 rounded-lg p-4 text-lg resize-none"></textarea>
+                </div>
+            </div>
+            <div class="flex justify-end">
+                <button class="bg-blue-500 text-white rounded-lg px-6 py-2" id="final-submit">Enviar</button>
+            </div>
+        </div>
+    </div>
+                    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll(".form-section");
+            const steps = document.querySelectorAll(".flex.items-center.mx-2.cursor-pointer");
+            let currentSection = 0;
+
+            function showSection(index) {
+                sections[currentSection].classList.add("hidden");
+                steps[currentSection].querySelector("div").classList.remove("active-step");
+                steps[currentSection].querySelector("div").classList.add("inactive-step");
+
+                currentSection = index;
+
+                sections[currentSection].classList.remove("hidden");
+                steps[currentSection].querySelector("div").classList.remove("inactive-step");
+                steps[currentSection].querySelector("div").classList.add("active-step");
+            }
+
+            function showFinalMessage() {
+                alert("Felicidades, estás a un paso de vivir la experiencia INTRO");
+                showSection(0);
+            }
+
+            steps.forEach((step, index) => {
+                step.addEventListener("click", () => showSection(index));
+            });
+
+            document.querySelectorAll("button[onclick^='showSection']").forEach(button => {
+                button.addEventListener("click", function () {
+                    const index = parseInt(this.getAttribute("onclick").match(/\d+/)[0]);
+                    showSection(index);
+                });
+            });
+
+            document.getElementById("final-submit").addEventListener("click", showFinalMessage);
+
+            showSection(currentSection);
+        });
+    </script>
+</body>
+</html>

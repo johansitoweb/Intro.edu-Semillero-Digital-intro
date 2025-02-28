@@ -1,0 +1,602 @@
+/* General Styles */
+body {
+    background-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.menu-close {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Contenido */
+.row {
+    flex: 1;
+    height: 100vh;
+}
+
+.content-section {
+    flex: 1;
+    padding: 20px;
+    display: none;
+    position: absolute;
+    width: 80%;
+    height: 100%;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Sección Hero */
+.hero-section {
+    height: 40%;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px 20px 20px 2opx;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.hero-section-image img {
+    width: 100%;
+    max-width: 400px;
+    margin-top: -75%;
+    margin-left: 120%;
+}
+
+.hero-text {
+    width: 60%;
+    text-align: justify;
+    margin-left: 3%;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-left: -3%;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
+.highlight {
+    color: #00b7ff;
+}
+
+/* Contenedor deslizable */
+.scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px 0;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Tarjetas de proyectos */
+.project-card {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 300px;
+    height: 320px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.project-card img {
+    width: 90%;
+    height: 180px;
+    background: #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 80%;
+    color: #555;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.profile-info i {
+    font-size: 1rem;
+    color: gray;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-principal {
+        width: 0;
+        overflow: hidden;
+        position: fixed;
+        height: 100vh;
+        z-index: 100;
+    }
+
+    .menu-principal.active {
+        width: 60%;
+        padding-top: 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-close {
+        display: block;
+    }
+
+    .bg-primary {
+        display: none;
+    }
+
+    .bg-primary.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+        overflow-y: auto;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-section-image img {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+    .profile-card {
+        width: 100%;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .project-card-perfil {
+        width: 100%;
+    }
+
+    .hero-section {
+        height: 0%;
+        background: linear-gradient(to right, #1e3c72, #2a5298);
+        color: white;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    
+    .hero-section-image img {
+        width: 40%;
+        margin-left: 70%;
+        margin-top: -35%;
+    }
+    
+    .hero-text {
+        width: 55%;
+        text-align: justify;
+        margin-left: -5%;
+    }
+    
+    .hero-text h1 {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-left: -40%;
+    }
+    
+    .hero-text p {
+        font-size: 0.5rem;
+        margin-left: -30%;
+        margin-top: -10;
+    }
+}
+
+.portada-perfil {
+    background-image: url(fondo.jpg);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    margin-top: -3%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.perfil-container {
+    margin-top: -15%;
+    margin-left: 3%;
+}
+
+.profile-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.profile-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-links a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #007bff;
+    padding-top: 5%;
+}
+
+.projects-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    padding: 1px;
+    scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+    -ms-overflow-style: none; /* Oculta la barra en Edge */
+    cursor: grab;
+    margin-left: 5%;
+    width: 100%;
+    height: auto; /* Ensure the height is maintained */
+}
+
+.projects-container::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll en Chrome y Safari */
+}
+
+.project-card-perfil {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 250px;
+    margin-right: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card-perfil img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.project-card-perfil:hover {
+    transform: scale(1.05);
+}
+
+.col-md-8 {
+    margin-left: -10%;
+    margin-top: 10%;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: white;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-status {
+    width: 10px;
+    height: 10px;
+    background: gray;
+    border-radius: 50%;
+}
+
+/* Título */
+h1 {
+    text-align: left;
+    padding: 20px;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Tarjetas de egresados */
+.graduates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 25%;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 100%;
+}
+
+.card a {
+    color: blue;
+    text-decoration: none;
+}
+
+.card .favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+}
+
+.card .favorite.active {
+    color: rgb(49, 127, 228);
+}
+
+.trabajos {
+    margin-left: 0%;
+}
+
+.buscador-trabajos {
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+#buscador-trabajos {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.contenedor-trabajos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    position: absolute;
+    width: 100%;
+}
+
+.tarjeta-trabajo {
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.detalle-trabajo {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Asegurar que esté por encima de otros elementos */
+}
+
+.detalle-trabajo.visible {
+    transform: translateX(0);
+}
+
+.oculto {
+    display: none;
+}
+
+button#cerrar-detalle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ver-detalle {
+    background-color: #b1d2e9;
+    color: white;
+    padding: 3%;
+    font-size: 100%;
+    border: none;
+    border-radius: 10%;
+}
+
+/* Contenedor principal */
+
+/* Buscador actualizado */
+.buscador-foros {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #af3232;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón para crear foro */
+.crear-foro {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: rgb(64, 137, 221);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: background 0.3s ease;
+}
+
+.crear-foro:hover {
+    background: #57a0f3;
+}
+
+/* Estilo de cada foro */
+.foro {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-left: 5px solid #0779c5;
+    transition: transform 0.2s ease-in-out;
+}
+
+.foro:hover {
+    transform: scale(1.02);
+}
+
+/* Títulos de los foros */
+.foro h3 {
+    margin: 5px 0;
+    cursor: pointer;
+    color: #333;
+}
+
+.foro h3:hover {
+    text-decoration: underline;
+}
+
+/* Botones dentro del foro */
+.foro button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.foro button:first-of-type {
+    background: #008CBA;
+    color: white;
+}
+
+.foro button:last-of-type {
+    background: #f44336;
+    color: white;
+}
+
+.foro button:hover {
+    opacity: 0.8;
+}

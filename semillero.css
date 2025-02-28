@@ -1,0 +1,320 @@
+/* Ajustes generales */
+body {
+    margin: 0% 8% 5% 8%;
+}
+
+section{
+    padding-top: 1%;
+}
+
+/* Navbar sin fondo */
+.navbar {
+    background-color: transparent !important;
+}
+
+/* Estilos de los enlaces del menú */
+.nav-link {
+    color: black !important;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Línea animada debajo del enlace al hacer hover */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #007BFF;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #007BFF !important;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Estilo del botón */
+.btn-boletin {
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 6px 12px;
+}
+
+/* Separación entre el menú y el botón */
+.menu-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Espacio entre el menú y el botón */
+}
+
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.image-left img {
+    width: 100%;
+    height: calc(50% - 5px);
+    /* Ajuste para el espacio entre imágenes */
+}
+
+.image-right img {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-brand img {
+    max-height: 100px;
+    /* Aumenta el tamaño del logo */
+}
+
+.student-card {
+    height: 400px; /* Mantiene la altura de la tarjeta */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+.student-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.hover-text {
+    position: relative;
+    bottom: 80px;
+    left: 39%;
+    top: 3%;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+.student-card:hover .hover-text {
+    opacity: 1;
+}
+/* 🔹 Aumenta el tamaño de las imágenes dentro de la tarjeta */
+.student-img {
+    width: 300px; /* Se ajusta al ancho de la tarjeta */
+    height: 480px; /* Imagen más grande */
+    object-fit: cover; 
+    margin-top: -12%;/* Ajusta la imagen sin deformarla */
+}
+
+.section4-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+}
+
+.section4 {
+    overflow: hidden;
+    width: 90%;
+}
+
+.slider2 {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card-section4 {
+    width: 400px;
+    height: 390px;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.card-section4 img {
+    width: 55%;
+    margin-top: 5%;
+}
+
+.card-section4 h4 {
+    background-color: rgba(255, 255, 255, 0.479);
+    padding: 10px;
+    border-radius: 3px;
+    max-width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.card-section4 p {
+    text-align: justify;
+}
+
+button.prev, button.next {
+    position: absolute;
+    color: rgba(63, 59, 59, 0.63);
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+button.prev { left: 10px; }
+button.next { right: 10px; }
+
+button:hover {
+    background-color: rgba(170, 162, 162, 0.8);
+}
+
+@media (max-width: 768px) {
+    .section4 {
+        width: 100%;
+    }
+
+    .card-section4 {
+        width: 100%;
+        max-width: 400px;
+        height: 400px;
+    }
+
+    .card-section4 h4 {
+        font-size: 20px;
+    }
+
+    .card-section4 p {
+        font-size: 16px;
+    }
+}
+
+.review-card {
+    background: #fff;
+    padding: 15px; /* Reduce el padding */
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 15px; /* Reduce el margen */
+    transition: transform 0.3s ease-in-out, flex 0.3s ease-in-out;
+    flex: 0 0 20%; /* Reduce el tamaño */
+    box-sizing: border-box;
+}
+
+.review-card:hover {
+    transform: scale(1.05);
+    flex: 0 0 100%; /* Ocupa toda la pantalla al hacer hover */
+}
+
+.review-card p {
+    text-align: justify;
+}
+
+.stars {
+    color: gold;
+    font-size: 16px; /* Reduce el tamaño de la fuente */
+}
+
+.date {
+    font-size: 12px; /* Reduce el tamaño de la fuente */
+    color: gray;
+}
+
+.footer {
+    background: #f4f4f4;
+    padding: 30px 0;
+    margin-top: 40px;
+    position: absolute;
+    left: -8%;
+    width: 108%;
+}
+
+.footer h5 {
+    font-weight: bold;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.footer .logo {
+    width: 200px;
+}
+
+.reviews-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.reviews-slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reviews-slider .prev {
+    left: 10px;
+}
+
+.reviews-slider .next {
+    right: 10px;
+}
+
+.reviews-slider button:hover {
+    background: rgba(170, 162, 162, 0.8);
+}
+
+@media (max-width: 768px) {
+
+    .review-card p {
+        font-size: 10px;
+    }
+
+    .footer .col-md-3 {
+        margin-bottom: 20px;
+    }
+    
+    .footer{
+        position: relative;
+        margin-right: -80%;
+    }
+}
